@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlex Bolen | Cyber Explorer</title>
+    <style>
+        body {
+    font-family:  'Orbitron', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color:  #1c1c1c;
+    background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    transition: top 0.3s ease;
+    top: 0;
+    z-index: 1000;
+}
+header.hide-header {
+    top: -100px; /* move header out of view */
+}
+header h1 {
+    background: repeating-linear-gradient(
+        90deg,
+        #0f0f0f,
+        #0f0f0f 10px,
+        #111 10px,
+        #111 20px
+    );
+    padding: 20px;
+    text-align: 2px dashed #ff0066;
+    margin: 0;
+    font-size: 2.5em;
+}
+body::before {
+    content: "";
+    background: url('https://imgur.com/a/TajhPhl.png') no repeat center center;
+    background-size: 200px;
+    opacity: 0.05;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+.back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+    .back-to-top:hover {
+        transform: scale(1.1);
+        background-color: #ff4081;
+    }
+h1 {
+    animation: glitch 0.6s infinite;
+}
+h1 :hover {
+    color: #00ffcc;
+    transition: color 0.6s ease, text-shadow 0.6s ease;
+    animation: fluxColor 3s infinite;
+    text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+}
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+nav {
+    margin-top: 10px;
+    
+}
+nav a {
+    color: #00bcd4;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav a[href="#about"] :hover {
+    color: red;
+}
+nav a[href="#projects"] :hover {
+    color: #ff69b4;
+}
+nav a[href="#contact"] :hover {
+    color: pink;
+}
+nav a:hover {
+    color: #00bcd4;
+}
+section {
+    padding: 60px 30px;
+}
+.cursor-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #00ffcc;
+    pointer-events: none;
+    animation: fadeOut 0.6s ease forwards;
+    z-index: 9999;
+}
+a:hover {
+    color: #00bcd4;
+    text-shadow: 0 0 5px #00ffcc;
+}
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #00ffcc;
+}
+.projects {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.project-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(33% - 20px);
+    box-sizing: border-box;
+}
+.project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,188,212,0.3);
+    background-color: #1e1e1e;
+    transition: all 0.3s ease-in-out;
+}
+.blinker {
+    display: inline-block;
+    animation: blink 1s step-start infinite;
+}
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+}
+form button {
+    background-color: #00bcd4;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #0097a7;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+    color: #808080;
+}
+.glitch-frames {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+}
+.glitch-frames::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -6px;
+    width: 8px;
+    height: 100px;
+    background: linear-gradient(180deg, #ff00ff, #00ffff, #ff0000, #00ff00);
+    animation: glitchColorBar 1.2s infinite linear;
+    box-shadow: 0 0 10px #00ffcc;
+    z-index: -1;
+    filter: blur(1px);
+}
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+@keyframes fluxColor {
+    0% {
+        color: #00ffcc; text-shadow: 0 0 15px #00ffcc;
+    }
+    25% {
+        color: #00ff00; text-shadow: 0 0 15px #00ff00;
+    }
+    50% {
+        color: #0066ff; text-shadow: 0 0 15px #0066ff;
+    }
+    75% {
+        color: #ff00ff; text-shadow: 0 0 15px #ff00ff;
+    }
+    100% {
+        color: #ffcc00; text-shadow: 0 0 15px #ffcc00;
+    }
+}
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 red;
+    }
+    50% {
+        text-shadow: -2px 0 cyan;
+    }
+    100% {
+        text-shadow: 2px 0 lime;
+    }
+}
+
+@keyframes glitchColorBar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 5px #00ffcc;
+    }
+    50% {
+        text-shadow: 0 0 15px #00ffcc;
+    }
+    100% {
+        text-shadow: 0 0 5px #00ffcc;
+    }
+    h1 {
+        animation: pulse 2s infinite;
+    }
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+@media (max-width: 768px) {
+    .project-card {
+        width: 100%;
+}
+}
+    </style>
+</head>
+    <link href="https://fonts.googleapis.com/css2?family=Courier%20Prime&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="Cyber portfolio of Starlex Bolen, a Kenyan ICT student exploring cybersecurity and ethical hacking.">
+    <meta name="author" content="Starlex Bolen">
+    <link rel="icon" href="https://files.catbox.moe/dbrgtt.jpg" type="image/x-icon">
+<body>
+    <div id="top-section">
+<header>
+    <h1>Starlex Bolen</h1>
+    <nav>
+       <div class="glitch-frame">
+            <img src="https://files.catbox.moe/c4dvrm.jpg" alt="Starlex Bolen" class="profile-img">
+        </div>
+        <nav class="primary-nav">
+            <a href="index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <nav class="secondary-nav">
+            <a href="#projects">Projects</a>
+            <a href="archives.html">Archives</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+        
+    </nav>
+</header>
+</div>
+<section id="about" style="position: relative;">
+<img src="https://files.catbox.moe/cr8rqe.png" style="position: absolute; top: 20px; right: 20px; width: 100px; opacity: 0.1;" alt="Watermark">
+    <h2>About Me</h2>
+    <p>Hello, I’m Starlex Bolen—a passionate and driven student of Cybersecurity,
+        ICT, and Artificial Intelligence, deeply fascinated by the rapidly evolving digital landscape. 
+    </p>
+    <p>With a strong foundation built through self and online-learning, and hands-on experience,
+    I specialize in empowering others to leverage technology—transforming everyday 
+    devices like smartphones into powerful tools for income generation.</p> 
+    <p>I thrive on exploring innovative digital solutions, building and testing systems, 
+        and sharing knowledge to foster growth and security in the digital realm. 
+        My curiosity for cybersecurity and AI fuels my commitment to staying at the forefront 
+        of technological advancements, helping people navigate and succeed in today’s
+        dynamic digital world.</p>
+    <p>If I'm not building something online, I'm probably studying a new tool, hacking growth 
+    strategies, or guiding someone else to start. That's where I started my journey, guided 
+    by few of my friends.
+    </p>
+    <p>Remember
+        <ul><li>If you don't buy it, Rent it.</li></ul>
+    </p>
+</section>
+<section id="projects">
+    <h2>My Projects</h2>
+<div class="projects">
+    <div class="project-card">
+    <h3>Smart Hustle eBook</h3>
+<p>Wrote and sold a guide on 10 online side hustles using only a smartphone. 
+    Shared on Selar and Gumroad with great reviews and downloads.
+</p>
+<p>A digital guide designed to help anyone with a smartphone tap into profitable online 
+    income streams. The eBook breaks down freelancing, affiliate marketing, content 
+    creation, and more, with clear, beginner-friendly steps.
+</p>
+<p>Buyers also enjoy a free Notion Template for creators, this helps to plan, schedule, 
+    and repurpose their content across Tiktok, Youtube, and Instagram. The toolkit helps 
+    with idea generation, posting consistency, and tracking performance.
+</p>
+</div>
+<div class="project-card">
+    <h3>Hacking Lab Setup</h3>
+       <p>Built a personal hacking lab using Parrot OS. Practiced WiFI cracking (wifite),
+        password brute-forcing, and ethical recon skills.</p>
+       <p>Wireless Audit Lab - Used TP-Link TL-WN722N v1 for Wi-Fi testing and packet analysis.
+       </p>
+       <p>Dual Boot Setup - Configured Windows + Parrot OS with GRUB. Backup-conscious and OS-ready.
+       </p>
+       <p>Basic Bug Hunting Practice - Explored begginer bug bounty hunting using platforms like Hack The Box and TryHackMe. 
+            Practiced XSS, IDOR, and basic recon tools.</p>
+    </div>
+    <div class="project-card">
+        <h3>HustleLaunch Whatsapp Class</h3>
+        <p>Hosted a 5-Days classes teaching freelancing, affiliate marketing, and digital 
+            product sales via whatsapp. Helped 150+ students get started. The goal was to help 
+            begginers make their first Ksh500-2,000 online with little to no capital.
+        </p>
+        <p>It ran multiple successful cohorts with over 150 participants, and led to a small 
+            community of learners who continue to collaborate and grow together. Many of them now 
+            run small gigs or sell digital products after the class.
+        </p>
+    </div>
+    <div class="project-card">
+        <h3>Typing Speed Test</h3>
+        <p>Created a typing speed test web app featuring real-time WPM calculation, 
+            accuracy tracking, and a clean UI. Designed to help users improve their typing skills.
+        <p>The app presents random text passages for users to type,
+             calculates words per minute (WPM) and accuracy, and provides instant feedback.
+        </p>
+        </p>
+        <p>The app is lightweight and responsive,
+             making it accessible on both desktop and mobile devices. It includes a 
+             countdown timer and a reset button for repeated practice sessions.
+        </p>
+        <p><a href="https://SB-043.github.io/TypingSpeedTest/">Click here to test your typing speed</a></p>
+    </div>
+</div>
+</section>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">↑</button>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out for collaborations, questions, or just to say hi!</p> 
+    <p><strong>Email:</strong> <a href="mailto:starlexbolen465@gmail.com">starlexbolen465@gmail.com</a></p>
+    <p><strong>Linktree:</strong> <a href="https://linktr.ee/StarlexBolen" target="_blank">StarlexBolen Resources</a></p>
+
+    <form action="https://formspree.io/f/xblkagye" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required=""><br>
+        <input type="email" name="email" placeholder="Your Email" required=""><br>
+        <textarea name="message" placeholder="Your Message" required=""></textarea><br>
+        <input type="hidden" name="_next" value="thankyou.html">
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    <footer style="text-align:center
+    center; padding: 20px;
+    color: #0f0;
+    background-color: #111;
+    font-family: monospace;">
+    <p>
+        &copy; 2025 Starlex Digital Projects. All Rights Reserved.
+    </p>
+    </footer>
+<script>
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY) {
+            // Scrolling down
+            header.classList.add('hide-header');
+        } else {
+            // Scrolling up
+            header.classList.remove('hide-header');
+        }
+        lastScrollY = window.scrollY;
+    });
+    //  Simple interaction: greet the visitor in the console
+    console.log("Welcome to starlex Bolen's Portfolio Site!");
+
+    /* Hover styles based on link text */
+    /* Hot pink */
+
+    // Example DOM interaction
+    document.addEventListener("DOMContentLoaded", () => {
+        heading.classList.add("color-punch"); //Give it a bold color punch
+    });
+
+    const errors = [
+        "WARNING: Data breach detected...",
+        "Decrypting firewall layers...",
+        "WARNINGHackerTooPowerfulError",
+        "Injecting payload into kernel space",
+        "Bypassing biometric authentication...",
+        "Overide confirmed. Welcome to BOLEN TECH."
+    ];
+
+    let i = 0;
+    function showErrors() {
+        const terminal = document.createElement("div");
+        terminal.style.background = "#000";
+        terminal.style.color = "#0f0"
+        terminal.style.fontFamily = "monospace";
+        terminal.style.padding = "10px";
+        terminal.style.position = "fixed";
+        terminal.style.bottom = "0";
+        terminal.style.left = "0";
+        terminal.style.right = "0";
+        terminal.style.zIndex = "999";
+        document.body.appendChild(terminal);
+        // Play Sound
+        const sound = document.getElementById("terminalSound");
+        if (sound) {
+            sound.play();
+        }
+        const errors = [
+        "WARNING: Data breach detected...",
+        "Decrypting firewall layers...",
+        "WARNINGHackerTooPowerfulError",
+        "Injecting payload into kernel space",
+        "Bypassing biometric authentication...",
+        "Overide confirmed. Welcome to BOLEN TECH."
+        ];
+
+        const line = document.createElement("div");
+        line.style.transition = "opacity 1s ease";
+        terminal.appendChild(line);
+
+        let i = 0;
+        function cycleErrors() {
+            if (i < errors.length) {
+                line.textContent = errors[i];
+                line.style.opacity = "1";
+                setTimeout(() => {
+                    line.style.opacity = "0";
+                    i++;
+                    setTimeout(cycleErrors, 500); // Wait for fade out before showing next error
+                }, 1200);
+            } else {
+                terminal.remove(); // Remove terminal after all errors shown
+            }
+        }
+
+        cycleErrors();
+    }
+    document.addEventListener("DOMContentLoaded", showErrors);
+
+</script>
+<audio id="terminalSound" src="https://www.soundjay.com/misc/sounds/keyboard-typing-1.mp3" preload="auto"></audio>
+
+</body>
+</html>

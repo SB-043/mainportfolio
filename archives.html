@@ -1,0 +1,362 @@
+<section id="archives">
+  <h2>📂 TECH ARCHIVES</h2>
+  <p>Download cheat sheets, roadmaps, and interview prep PDFs.</p>
+
+
+  <span class="tag"#HTML</span>
+  <span class="tag"#CyberSecurity</span>
+
+<nav class="archive-nav">
+  <ol>
+    <li><a href="#html-cheat">HTML for begginers Cheat Sheet</a></li>
+    <li><a href="#phishing">CyberSecurity: Phishing Attacks</a></li>
+    <li><a href="#linux-vm">Configure Linux on Virtual Machines</a></li>
+    <li><a href="#os-fundamentals">Operating System Fundamentals</a></li>
+    <li><a href="#osint-tools">21 Dark Web OSINT Tools</a></li>
+  </ol>
+</nav>
+</section>
+
+
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">↑</button>
+
+
+
+
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    .archive-nav {
+        position: sticky;
+    }
+    .archive-nav a {
+        color: #00bcd4;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .archive-nav a:hover {
+        color: #ff4081
+    }
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+    .back-to-top:hover {
+        transform: scale(1.1);
+        background-color: #ff4081;
+    }
+
+    
+
+
+
+    .archive-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .archive-item {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    
+    .archive-thumb {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        box-shadow: 0 0 10px #00bcd4;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    .archive-thumb:hover {
+        transform: scale(1.05);
+    }
+    
+    .archive-item h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color: #333;
+    }
+    
+    .archive-item p {
+        font-size: 1rem;
+        color: #555;
+    }
+    
+    .archive-item a {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #007BFF;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    
+    .archive-item a:hover {
+        background-color: #0056b3;
+    }
+    .terminal-output {
+    color: #ab0f0f;
+    font-family: 'Courier New', monospace;
+    padding: 5px;
+    max-width: 600px;
+    }
+
+    .glitch-line {
+    animation: flicker 0.3s infinite alternate;
+    }
+
+    @keyframes flicker {
+    0% { opacity: 100; }
+    100% { opacity: 0.6; }
+    }
+    footer {
+        position: center fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+
+</style>
+
+
+
+
+  <p>This resource is shared for educational and reference purposes only.
+    All credit goes to the <strong>original creator</strong> of the document. 
+    I do not claim ownership or authorship of some of this materials.</p>
+  <div class="archive-list">
+    <div class="archive-item" id="html-cheat">
+        <img src="assets/thumbnails/html-cheat-sheet.jpg" alt="HTML SHEET PDF Cover" class="archive-thumb">
+      <h3>HTML for begginers Cheat Sheet</h3>
+      <p>A comprehensive, beginner-friendly reference covering the 
+        full spectrum of HTML essentials—from document structure and 
+        text formatting to forms, tables, multimedia embeds, and HTML5 
+        semantic tags. This cheat sheet includes:
+        <ul>
+<li>Tag-by-tag breakdowns with examples</li>
+<li>Layout and structure fundamentals [html, head, body] </li>
+<li>Text styling, links, images, and lists</li>
+<li>Forms, input types, and attributes</li>
+<li>Tables, iFrames, and multimedia embeds</li>
+<li>HTML5 semantic elements like [section, article, nav]</li>
+<li>Bonus: character entities and accessibility tips</li>
+</ul>
+Perfect for students, self-learners, and anyone building their first website.
+ Keep it handy while coding or prepping for interviews.</p>
+      <a href="assets/pdfs/HTML-Cheat-sheet-for-beginners2025.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+
+
+    <div class="archive-list">
+    <div class="archive-item" id="phishing">
+        <img src="assets/thumbnails/phishing-attacks.jpg" alt="Phishing PDF Cover" class="archive-thumb">
+      <h3>CyberSecurity: Phishing Attacks</h3>
+      <p>A compact guide to the most common and dangerous forms of phishing—designed to 
+        raise awareness and strengthen digital defenses. This sheet breaks down:
+        <ul>
+<li>Email Phishing: fake messages with malicious links or attachments</li>
+<li>Spear Phishing: personalized attacks targeting individuals</li>
+<li>Whaling: high-stakes scams aimed at executives and officials</li>
+<li>Smishing: deceptive SMS messages from fake senders</li>
+<li>Vishing: voice calls impersonating trusted organizations</li>
+<li>Pharming: redirecting users to fake websites via DNS poisoning</li>
+<li>Clone Phishing: replicas of real emails with hidden threats</li>
+<li>BEC (Business Email Compromise): fraud targeting companies and vendors</li>
+</ul>
+Each section includes examples, warning signs, and practical tips for staying safe. 
+Ideal for students, professionals, and anyone navigating the digital world.
+      </p>
+      <a href="assets/pdfs/CyberSecurity-phishing-attacks2025.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+
+
+    <div class="archive-list">
+    <div class="archive-item" id="linux-vm">
+        <img src="assets/thumbnails/linux-vm.jpg" alt="Linux-vm DF Cover" class="archive-thumb">
+      <h3>Configure Linux on Virtual Machines</h3>
+      <p>
+        A step-by-step guide to setting up Linux (like Ubuntu or Kali) 
+        inside a virtual machine—ideal for testing, learning, 
+        and secure experimentation. This cheat sheet walks you through:
+        <ul>
+<li>What virtual machines are and why they matter</li>
+<li>System requirements for smooth performance</li>
+<li>Installing VirtualBox and downloading Linux ISO</li>s
+<li>Creating and configuring your VM (RAM, disk, boot settings)</li>
+<li>Mounting the ISO and installing Linux safely</li>
+<li>Post-install tweaks: updates, Guest Additions, shared folders</li>
+<li>Optional enhancements for developers and testers</li>
+</ul>
+Whether you're a cybersecurity student, a dev building in a sandbox, 
+or just curious about Linux—this guide gets you up and running fas
+      </p>
+      <a href="assets/pdfs/Configure-linux-on-Virtual-Machines.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+
+    <div class="archive-list">
+    <div class="archive-item" id="os-fundamentals">
+        <img src="assets/thumbnails/os-fundamentals.jpg" alt="OS fundamentals PDF Cover" class="archive-thumb">
+      <h3>Operating System Fundamentals</h3>
+      <p>
+        A beginner-friendly breakdown of operating systems and 
+        their various types—ideal for students, tech enthusiasts, 
+        and anyone prepping for IT exams or interviews. This sheet covers:
+        <ul>
+<li>What an operating system is and how it manages hardware/software</li>
+<li>11 OS types explained with use cases and examples:</li>
+<ul class="star-list">
+<li>Batch OS</li>
+<li>Time-Sharing OS</li>
+<li>Real-Time OS (RTOS)</li>
+<li>Distributed OS</li>
+<li>Network OS</li>
+<li>Embedded OS</li>
+<li>Mobile OS</li>
+<li>Multiprogramming & Multiprocessing OS</li>
+<li>Single-User & Multi-User OS</li></ul>
+<li>Examples include UNIX, Linux, Windows Server, FreeRTOS, Android, and more.</li>
+</ul>
+Each section includes practical applications and real-world 
+systems to help learners connect theory to practice.
+</p>
+      <a href="assets/pdfs/operating-system-types.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+
+    <div class="archive-list">
+    <div class="archive-item" id="osint-tools">
+        <img src="assets/thumbnails/osint-cover.jpg" alt="OSINT Tools PDF Cover" class="archive-thumb">
+      <h3>21 Dark Web OSINT Tools</h3>
+      <p>
+        A curated list of powerful tools used by cybersecurity professionals 
+        and OSINT investigators to explore the dark web and uncover hidden 
+        intelligence. This guide includes:
+        <ul>
+            <li>Secure access tools (Tor Browser, TOR2Web, Onion.live)</li>
+            <li>Dark web search engines (Ahmia, HayStack, Torch, Onion Engine)</li>
+            <li>Data breach checkers (DeHashed, HaveIBeenPawned, Aleph)</li>
+            <li>Threat intel tools (DeepDarkCTI, TorCrawl.py)</li>
+            <li>Encryption utilities (PGP Tool)</li>
+            <li>Telegram OSINT bots (Telemetry, LeakOSINT, UniverseSearchBot)</li>
+            <li>Onion link directories (Hidden Wiki, Tor.link, DarkwebDaily)</li>
+        </ul>
+        Ideal for ethical hackers, threat analysts, and digital sleuths looking 
+        to expand their toolkit and navigate the dark web safely and effectively.
+      </p>
+      <a href="assets/pdfs/osint-darkweb-tools.pdf" download>⬇️ Download</a>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="archive-list">
+    <div class="archive-item">
+      <h3>Trojan</h3>
+      <body class="bg-gray-200 p-4 sm:p-8">
+<div id="errorLog" class="terminal-output"></div>
+<button onclick="triggerTerminalSequence()"><a href="assets/pdfs/unknown.pdf" download>⬇️ Download malicious file</a></button>
+<audio id="terminalSound" src="assets/sounds/little-alien.mp3" preload="auto"></audio>
+
+    </div>
+    <!-- Repeat for each PDF -->
+  </div>
+</section>
+<div id="errorLog" class="terminal-output"></div>
+
+
+<audio id="terminalSound" src="assets/sounds/little-alien.mp3" preload="auto"></audio>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sound = document.getElementById("terminalSound");
+    const errorLog = document.getElementById("errorLog");
+
+
+    
+
+    const errors = [
+      "Succesfully downloaded Malware.",
+        "Infecting system files...",
+        "Bypassing antivirus...",
+        "Establishing remote connection...",
+        "Extracting sensitive data...",
+        "Uploading data to remote server...",
+        "Covering tracks...",
+        "Infection complete. System compromised."
+    ];
+
+    window.triggerTerminalSequence = function () {
+      if (sound) {
+        sound.play();
+      }
+      
+
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < errors.length) {
+          const line = document.createElement("p");
+          line.textContent = errors[index];
+          line.classList.add("glitch-line");
+          errorLog.appendChild(line);
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 1000);
+    };
+  });
+</script>
+
+
+
+
+
+
+
+
+<footer class="archive-footer">
+  <p>This archive is curated for educational and reference purposes. 
+    Some resources are adopted from public materials—credit goes to the original creators.</p>
+  <p>Got a resource to share or feedback to improve this hub? <a href="https://linktr.ee/StarlexBolen">Reach out</a>.</p>
+  <p> | <a href="/">Back to Homepage</a> | <a href="#archives">Top of Archives</a> | </p>
+</footer>
+
+<footer>
+    <p>&copy; 2025 Starlex Digital Projects. All Rights Reserved.</p>
+</footer>
+
