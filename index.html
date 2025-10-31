@@ -143,7 +143,7 @@ a:hover {
     flex-wrap: wrap;
 }
 .project-card {
-    background-color: #1a1a1a;
+    background-color: #051836;
     padding: 20px;
     border-radius: 8px;
     width: calc(33% - 20px);
@@ -152,7 +152,7 @@ a:hover {
 .project-card:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 12px rgba(0,188,212,0.3);
-    background-color: #1e1e1e;
+    background: linear-gradient(to right, #410a9e, #d76558);
     transition: all 0.3s ease-in-out;
 }
 .blinker {
@@ -199,6 +199,27 @@ footer {
     box-shadow: 0 0 10px #00ffcc;
     z-index: -1;
     filter: blur(1px);
+}
+.highlight-section {
+  background: linear-gradient(to right, #410a9e, #138296);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.btn-tribute {
+  background-color: #051836;
+  color: rgb(15, 33, 234);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-tribute:hover {
+  background-color: #fff;
 }
 @keyframes blink {
     50% {
@@ -287,11 +308,11 @@ footer {
         <nav class="primary-nav">
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <a href="privacy.html">Privacy</a>
+            <a href="apps/privacy.html">Privacy</a>
         </nav>
         <nav class="secondary-nav">
             <a href="#projects">Projects</a>
-            <a href="archives.html">Archives</a>
+            <a href="apps/archives.html">Archives</a>
             
         </nav>
         
@@ -320,6 +341,15 @@ footer {
         <ul><li>If you don't buy it, Rent it.</li></ul>
     </p>
 </section>
+
+<section id="innovation-legacy" class="highlight-section">
+  <h2>Innovation Legacy 2025</h2>
+  <p>A tribute campaign honoring the digital minds shaping tomorrow—designers, engineers, architects, and leaders. Built with modular HTML, responsive design, and storytelling precision.</p>
+  <a href="apps/legacy.html" class="btn-tribute">View the Tribute</a>
+</section>
+
+
+
 <section id="projects">
     <h2>My Projects</h2>
 <div class="projects">
@@ -371,7 +401,7 @@ footer {
              making it accessible on both desktop and mobile devices. It includes a 
              countdown timer and a reset button for repeated practice sessions.
         </p>
-        <p><a href="typing-speed.html">Click here to test your typing speed</a></p>
+        <p><a href="apps/typing-speed.html">Click here to test your typing speed</a></p>
     </div>
 </div>
 </section>

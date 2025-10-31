@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore More Innovations – Starlex Digital</title>
+  <meta name="description" content="Discover the minds, milestones, and movements shaping digital innovation. A curated hub of tribute campaigns, creative breakthroughs, and visionary projects." />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #e3f2fd, #fce4ec);
+      color: #1a1a1a;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #0d47a1;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #4a148c;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #0d47a1;
+      margin-top: 2rem;
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      background-color: #fff8e1;
+      padding: 1rem;
+      border-left: 5px solid #fdd835;
+      margin: 2rem 0;
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .back-button a {
+      background-color: #0d47a1;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #1565c0;
+    }
+    #newsletter input {
+  padding: 0.5rem;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+.popup-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 300px;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.popup-content p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.popup-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-content input[type="email"] {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popup-content button {
+  padding: 0.5rem;
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.3rem;
+}
+
+.popup-content button:hover {
+  background-color: #1565c0;
+}
+
+#newsletter button {
+  padding: 0.5rem 1rem;
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#newsletter button:hover {
+  background-color: #1565c0;
+}
+
+
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Explore More Innovations</h1>
+    <p>Where tribute meets transformation. Discover the minds, milestones, and movements shaping digital progress.</p>
+  </header>
+
+  <div class="section">
+    <h2>Annual Innovation Award</h2>
+    <p>
+      A campaign born from gratitude and vision. The Annual Innovation Award honors those who spark transformation across disciplines—from design and engineering to strategy and leadership. Explore the tribute, meet the contributors, and witness the legacy in motion.
+    </p>
+    <div class="highlight">
+      <strong>Featured Link:</strong> <a href="legacy.html">View the Innovation Legacy Tribute</a>
+    </div>
+
+    <h2>🧠 Breakthrough Projects</h2>
+    <p>
+      From firewall log analyzers to network visualizers, Starlex Digital continues to build tools that empower, protect, and inspire. These projects aren’t just technical—they’re strategic, modular, and legacy-driven.
+    </p>
+    <ul>
+      <li>Python-based Firewall Log Analyzer with Alerting</li>
+      <li>VBScript Startup Diagnostics Tool</li>
+      <li>Network Topology Visualizer (NetworkX + Matplotlib)</li>
+      <li>Linux Honeypot Simulation for Attack Logging</li>
+    </ul>
+
+    <h2>📣 Community Spotlights</h2>
+    <p>
+      Innovation thrives in collaboration. This space will soon feature guest creators, partner campaigns, and spotlight interviews with digital minds making waves across the continent and beyond.
+    </p>
+
+    <h2>📅 What’s Next?</h2>
+    <p>
+      The Innovation Hub will evolve. Expect new tribute formats, interactive showcases, and collaborative experiments. This is not a static archive—it’s a living engine of creativity and recognition.
+    </p>
+  </div>
+
+<div id="newsletter-popup" class="popup-container">
+  <div class="popup-content">
+    <p><strong>Stay in the loop.</strong> Subscribe to our newsletter for innovation updates, tribute campaigns, and creative breakthroughs.</p>
+    <form action="https://formspree.io/f/xblkagye" method="POST">
+      <input type="email" name="email" placeholder="Your email" required />
+      <input type="hidden" name="source" value="New newsletter subscriber" />
+      <input type="hidden" name="_redirect" value="thank-you.html" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+<script>
+  const popup = document.getElementById('newsletter-popup');
+
+  // Show popup after delay
+  setTimeout(() => {
+    popup.style.display = 'block';
+  }, 3000); // 5 seconds delay
+</script>
+</body>
+</html>
