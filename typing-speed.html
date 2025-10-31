@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Test and improve your typing speed and accuracy for free with our online typing test. Get your WPM score and identify areas for improvement.">
+    <meta name="keywords" content="Starlex, Free typing speed test for begginers, Typing speed test for programmers, Check your WPM score online for free, How to improve your typing speed and accuracy, Online typing practice exercise for students, Typing speed test,WPM test, free typing test, how to type faster, typing practice, typing games, typing accuracy test, 1 minute typing test, online keyboard test, average typing speed, how to type faster, free typing speed test, students, cybersecurity, typing, typingspeedtest, google.com, github.com, media, digital hustler, Kenya, portfolio, Parrot OS, freelancing, tech guide">
+    <meta name="author" content="Starlex Bolen">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice and Improve your WPM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --background-color: #687285;
+            --main-color: #ffffff;
+            --text-color: #333;
+            --primary-color: #3498db;
+            --correct-color: #2ecc71;
+            --incorrect-color: #e74c3c;
+            --border-color: #ccc;
+            --highlight-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: var(--main-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            max-width: 100%;
+            text-align: center;
+            position: relative; /* <-- ADD THIS LINE */
+            padding-bottom: 50px; /* <-- ADD THIS LINE */
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .test-area {
+            margin-top: 20px;
+        }
+
+        .words-container {
+            background-color: #afd0eb;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+            height: 100px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 10px;
+        }
+
+        .words-container span {
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .word.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Style for the active word when input is incorrect */
+        .word.active.incorrect-input {
+             background-color: var(--incorrect-color);
+             color: rgb(219, 20, 20);
+        }
+
+        .word.correct {
+            color: var(--correct-color);
+        }
+
+        .word.incorrect {
+            color: var(--incorrect-color);
+            text-decoration: underline;
+        }
+
+        .input-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .typing-input {
+            flex-grow: 1;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .typing-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .typing-input:disabled {
+            background-color: #e9ecef;
+        }
+
+        .timer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .reset-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reset-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .reset-btn svg {
+            fill: white;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .result.hidden {
+            display: none;
+        }
+
+        .result-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 15px;
+            gap: 15px;
+        }
+
+        .result-details > div {
+            min-width: 100px;
+        }
+
+        .result-details p {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .result-details span {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .powered-by {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #777;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+    </style>
+</head> 
+    <link rel="icon" href="https://files.catbox.moe/dbrgtt.jpg" type="image/x-icon">
+<body>
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+        <p>Test your typing skills and see how many words you can type per minute.</p>
+        
+        <div class="test-area">
+            <div id="words-container" class="words-container">
+                </div>
+            <div class="input-section">
+                <input type="text" id="typing-input" class="typing-input" placeholder="Start typing here..." disabled>
+                <div id="timer" class="timer">1:00</div>
+                <button id="reset-btn" class="reset-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="result" class="result hidden">
+            <h2>Test Results</h2>
+            <div class="result-details">
+                <div>
+                    <p>WPM</p>
+                    <span id="wpm">0</span>
+                </div>
+                <div>
+                    <p>Accuracy</p>
+                    <span id="accuracy">0%</span>
+                </div>
+                <div>
+                    <p>Keystrokes</p>
+                    <span id="keystrokes">(<span id="correct-strokes" style="color: var(--correct-color);">0</span> | <span id="incorrect-strokes" style="color: var(--incorrect-color);">0</span>) <span id="total-strokes">0</span></span>
+                </div>
+                <div>
+                    <p>Correct Words</p>
+                    <span id="correct-words">0</span>
+                </div>
+                <div>
+                    <p>Wrong Words</p>
+                    <span id="wrong-words">0</span>
+                </div>
+                <div class="powered-by">Powered by Starlex</div>
+
+              <footer>
+                <div class="footer-links">
+                    <a href="index.html">About Me</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="https://linktr.ee/StarlexBolen">Contact</a>
+                </div>
+                <p>&copy; 2025 Starlex Digital Projects. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wordsContainer = document.getElementById('words-container');
+            const typingInput = document.getElementById('typing-input');
+            const timerElement = document.getElementById('timer');
+            const resetButton = document.getElementById('reset-btn');
+            const resultContainer = document.getElementById('result');
+
+            const wpmElement = document.getElementById('wpm');
+            const accuracyElement = document.getElementById('accuracy');
+            const correctStrokesElement = document.getElementById('correct-strokes');
+            const incorrectStrokesElement = document.getElementById('incorrect-strokes');
+            const totalStrokesElement = document.getElementById('total-strokes');
+            const correctWordsElement = document.getElementById('correct-words');
+            const wrongWordsElement = document.getElementById('wrong-words');
+
+            const TEST_DURATION = 60; // seconds
+            const WORDS_PER_LINE = 10; // words shown per line
+            let allWords = [];
+            let lines = []; // array of arrays (each inner array is a line of words)
+            let currentLineIndex = 0; // which line is shown as the top line
+            let currentWordIndexInLine = 0; // index of the active word within the top line
+
+            let timer;
+            let timeRemaining = TEST_DURATION;
+            let testActive = false;
+
+            let correctStrokes = 0;
+            let incorrectStrokes = 0;
+            let correctWords = 0;
+            let wrongWords = 0;
+
+            const wordList = [
+                "our", "take", "watch", "example", "now", "high", "later", "left", "mountain", "page",
+                "always", "father", "were", "it's", "animal", "his", "back", "tree", "read", "add",
+                "spell", "people", "grow", "because", "or", "big", "really", "little",
+                "thought", "hand", "enough", "put", "feet", "word", "let", "make", "under",
+                "the", "and", "for", "are", "with", "as", "his", "they", "be", "at", "one",
+                "have", "this", "from", "had", "by", "hot", "but", "what", "some",
+                "is", "it", "you", "that", "he", "was", "on", "are", "our", "take", "watch", "example",
+                "now", "high", "later", "left", "mountain", "page", "life", "christ", "adventure", "joy",
+                "always", "father", "were", "it's", "animal", "his", "back", "tree", "read", "add",
+                "America", "spell", "people", "grow", "because", "or", "big", "really", "little",
+                "thought", "hand", "enough", "put", "feet", "word", "let", "make", "under",
+                "the", "and", "for", "are", "with", "as", "his", "they", "be", "at", "one",
+                "have", "this", "from", "had", "by", "hot", "but", "what", "some",
+                "is", "it", "you", "that", "he", "was", "on", "are", "not", "all", "were",
+                "we", "when", "there", "can", "an", "your", "said", "if", "do", "each",
+                "she", "which", "how", "their", "will", "my", "one", "all", "would", "there",
+                "say", "who", "make", "when", "can", "more", 
+            ];
+
+            function getRandomWords(count = 100) {
+                const extended = [];
+                while (extended.length < count) extended.push(...wordList);
+                return extended.sort(() => Math.random() - 0.5).slice(0, count);
+            }
+
+            function chunkWords(wordsArr, size) {
+                const out = [];
+                for (let i = 0; i < wordsArr.length; i += size) {
+                    out.push(wordsArr.slice(i, i + size));
+                }
+                return out;
+            }
+
+            function ensureLinesAvailable(minIndex) {
+                // ensure lines array has at least minIndex+2 entries (top line + next line)
+                while (lines.length <= minIndex + 1) {
+                    const moreWords = getRandomWords(WORDS_PER_LINE * 5);
+                    const moreLines = chunkWords(moreWords, WORDS_PER_LINE);
+                    lines.push(...moreLines);
+                }
+            }
+
+            function renderLines() {
+                wordsContainer.innerHTML = '';
+                // render top two lines (currentLineIndex and currentLineIndex+1)
+                for (let lineOffset = 0; lineOffset < 2; lineOffset++) {
+                    const lineIndex = currentLineIndex + lineOffset;
+                    ensureLinesAvailable(lineIndex);
+                    const lineWords = lines[lineIndex] || [];
+
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = 'line';
+                    lineDiv.style.width = '100%';
+                    lineDiv.style.display = 'flex';
+                    lineDiv.style.flexWrap = 'wrap';
+                    lineDiv.style.gap = '10px';
+                    lineDiv.style.alignItems = 'flex-start';
+                    lineDiv.style.marginBottom = '6px';
+
+                    lineWords.forEach((w, idx) => {
+                        const span = document.createElement('span');
+                        span.textContent = w;
+                        span.classList.add('word');
+                        // active only for top line
+                        if (lineOffset === 0 && idx === currentWordIndexInLine) {
+                            span.classList.add('active');
+                        }
+                        lineDiv.appendChild(span);
+                    });
+
+                    wordsContainer.appendChild(lineDiv);
+                }
+            }
+
+            function initializeTest() {
+                allWords = getRandomWords(300);
+                lines = chunkWords(allWords, WORDS_PER_LINE);
+                currentLineIndex = 0;
+                currentWordIndexInLine = 0;
+
+                typingInput.value = '';
+                typingInput.disabled = false;
+                typingInput.focus();
+
+                timeRemaining = TEST_DURATION;
+                timerElement.textContent = `1:00`;
+
+                testActive = false;
+                clearInterval(timer);
+
+                resultContainer.classList.add('hidden');
+                correctStrokes = 0;
+                incorrectStrokes = 0;
+                correctWords = 0;
+                wrongWords = 0;
+
+                renderLines();
+            }
+
+            function startTimer() {
+                if (!testActive) {
+                    testActive = true;
+                    timer = setInterval(() => {
+                        timeRemaining--;
+                        const minutes = Math.floor(timeRemaining / 60);
+                        const seconds = timeRemaining % 60;
+                        timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                        if (timeRemaining <= 0) {
+                            endTest();
+                        }
+                    }, 1000);
+                }
+            }
+
+            function endTest() {
+                clearInterval(timer);
+                testActive = false;
+                typingInput.disabled = true;
+
+                const totalStrokes = correctStrokes + incorrectStrokes;
+                const accuracy = totalStrokes > 0 ? ((correctStrokes / totalStrokes) * 100).toFixed(2) : 0;
+                const grossWPM = (totalStrokes / 5) / (TEST_DURATION / 60);
+
+                wpmElement.textContent = Math.round(grossWPM);
+                accuracyElement.textContent = `${accuracy}%`;
+                correctStrokesElement.textContent = correctStrokes;
+                incorrectStrokesElement.textContent = incorrectStrokes;
+                totalStrokesElement.textContent = totalStrokes;
+                correctWordsElement.textContent = correctWords;
+                wrongWordsElement.textContent = wrongWords;
+
+                resultContainer.classList.remove('hidden');
+            }
+
+            typingInput.addEventListener('input', (e) => {
+                if (!testActive && typingInput.value.length > 0) {
+                    startTimer();
+                }
+
+                const topLine = lines[currentLineIndex] || [];
+                const currentWord = topLine[currentWordIndexInLine] || '';
+                const typedValue = typingInput.value;
+
+                // if user presses space to finish a word
+                if (typedValue.endsWith(' ')) {
+                    const typedWord = typedValue.trimEnd();
+                    // count strokes (characters typed including space)
+                    if (typedWord === currentWord) {
+                        // correct word
+                        correctWords++;
+                        correctStrokes += currentWord.length + 1; // include space
+                        // mark DOM
+                        const topLineDiv = wordsContainer.children[0];
+                        if (topLineDiv) topLineDiv.children[currentWordIndexInLine]?.classList.add('correct');
+                    } else {
+                        wrongWords++;
+                        incorrectStrokes += currentWord.length + 1;
+                        const topLineDiv = wordsContainer.children[0];
+                        if (topLineDiv) topLineDiv.children[currentWordIndexInLine]?.classList.add('incorrect');
+                    }
+
+                    // move to next word in the top line
+                    const topLineDiv = wordsContainer.children[0];
+                    if (topLineDiv) topLineDiv.children[currentWordIndexInLine]?.classList.remove('active', 'incorrect-input');
+
+                    currentWordIndexInLine++;
+
+                    // if finished the top line, shift lines
+                    if (currentWordIndexInLine >= topLine.length) {
+                        // shift up: advance currentLineIndex, reset word index
+                        currentLineIndex++;
+                        currentWordIndexInLine = 0;
+                        // ensure there are always at least 2 lines available
+                        ensureLinesAvailable(currentLineIndex + 1);
+                    }
+
+                    // re-render lines and reset input
+                    renderLines();
+                    typingInput.value = '';
+                } else {
+                    // while typing a word, update active-word correctness highlight
+                    const topLineDiv = wordsContainer.children[0];
+                    if (!topLineDiv) return;
+                    const currentSpan = topLineDiv.children[currentWordIndexInLine];
+                    if (!currentSpan) return;
+
+                    if (currentWord.startsWith(typedValue)) {
+                        currentSpan.classList.remove('incorrect-input');
+                    } else {
+                        currentSpan.classList.add('incorrect-input');
+                    }
+                }
+            });
+
+            resetButton.addEventListener('click', initializeTest);
+
+            // Initial load
+            initializeTest();
+        });   
+    </script>
+</body>
+
+</html>
