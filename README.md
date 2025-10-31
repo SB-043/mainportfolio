@@ -1,6 +1,6 @@
 # Hi there, I'm Starlex Bolen
 
-Welcome to my profile! This is the portfolio repository for **starlex-portfolio**.
+Welcome to my profile! This is the portfolio repository for **starlex Bolen**.
 
 ## 🚀 About Me
 
